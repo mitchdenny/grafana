@@ -883,6 +883,8 @@ func (nc *mockNotificationChannel) ServeHTTP(res http.ResponseWriter, req *http.
 	key := fmt.Sprintf("%s/%s", urlParts[len(urlParts)-2], urlParts[len(urlParts)-1])
 	body := getBody(nc.t, req.Body)
 
+	fmt.Println("--- $$", key, body)
+
 	// Special handling for non-static data, like timestamp.
 	if strings.Contains(key, "slack") {
 		// Remove the timestamp from slack.

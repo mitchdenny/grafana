@@ -15,7 +15,7 @@ export const NewRuleFromPanelButton: FC<Props> = ({ dashboard, panel, className 
   const formValues = panelToRuleFormValues(panel, dashboard);
   const location = useLocation();
 
-  if (!formValues) {
+  if (!formValues || !dashboard.meta.canSave) {
     return null;
   }
 
